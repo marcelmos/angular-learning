@@ -1,0 +1,11 @@
+.content{
+    width: 75%;
+    height: 100%;
+    float: left;
+    background: silver;
+    padding: 10px;
+}
+
+button{
+    margin: 5px 0;
+}

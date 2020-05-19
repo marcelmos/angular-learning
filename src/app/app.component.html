@@ -1,0 +1,60 @@
+<app-navigation></app-navigation>
+
+<div class="content">
+  <h2>Nauka frameworka {{title | uppercase}}</h2>
+
+  <!-- Days -->
+  <div>
+    <button (click)="show()">
+      <p *ngIf="isVisible; else textDay">Pokaż dni tygodnia</p>
+      <ng-template #textDay><p>Ukryj dni tygodnia</p></ng-template>
+    </button>
+  </div>
+
+  <ng-container *ngIf="isVisible">
+    <p>Po niemiecku:</p>
+    <div *ngFor="let day of days">
+      <div [ngSwitch]="day">
+        <div *ngSwitchCase="'Poniedziałek'">Montag</div>
+        <div *ngSwitchCase="'Wtorek'">Dienstag</div>
+        <div *ngSwitchCase="'Środa'">Mittwoch</div>
+        <div *ngSwitchCase="'Czwartek'">Donnerstag</div>
+        <div *ngSwitchCase="'Piątek'">Freitag</div>
+        <div *ngSwitchCase="'Sobota'">Samstag</div>
+        <div *ngSwitchDefault>Sontag</div>
+      </div>
+    </div>
+    <p>Po polsku:</p>
+    <div *ngFor="let day of days">
+      {{day}}
+    </div>
+  </ng-container>
+
+
+<!-- Dogs -->
+  <div>
+    <button (click)="hide()">
+      <p *ngIf="isHidden; else textDogs">Pokaż pieski</p>
+      <ng-template #textDogs><p>Ukryj pieski</p></ng-template>
+    </button>
+  </div>
+
+  <div [hidden]="isHidden">
+    <div *ngIf="dogs.length > 0; else noDogs">
+      <p>Wszystkie psy:</p>
+      <div *ngFor="let dog of dogs">
+        <div *ngIf="dog.age">
+          Piesek {{dog.name}}, lat {{dog.age}}.
+        </div>
+      </div>
+      <p>Więcej niż 4 lata:</p>
+      <div *ngFor="let dog of dogs">
+        <div *ngIf="dog.age > 4">
+          Piesek {{dog.name}}, lat {{dog.age}}.
+        </div>
+      </div>
+    </div>
+  </div>
+  <ng-template #noDogs>
+    <p>Piseków nie ma</p>
+  </ng-template>
