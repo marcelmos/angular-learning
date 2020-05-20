@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavigationComponent implements OnInit {
 
-  iCan = ["Create new Angular project", "Create component", "Using *ngFor", "Edit component HTML", "Edit component CSS"];
+  iCan = ["Create new Angular project", "Create component", "Using *ngFor", "Edit component HTML", "Edit component CSS", "Data binding"];
 
   constructor() { }
 

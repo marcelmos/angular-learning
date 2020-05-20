@@ -58,3 +58,40 @@
   <ng-template #noDogs>
     <p>Piseków nie ma</p>
   </ng-template>
+
+  <!-- DATA BINDING -->
+  <div>
+    <p>Data binding</p>
+    <!-- Pt.1 -->
+    <div>
+      <h5 [className]="colorClass">Property binding pt.1</h5>
+      <img [src]="logoUrl">
+      <input [maxLength]="maxLengt" [value]="inputText">
+      <button [disabled]="isDisable" (click)="change()">Dodaj</button>
+    </div>
+    <!-- Pt.2 -->
+    <div>
+      <h5 [className]="colorForClass">Property binding pt.2</h5>
+      <input [disabled]="isShutDown" (focus)="onFocus()">
+      <br>
+      <input [disabled]="isShutDown" (click)="onClick($event)">
+      <br>
+      <input [disabled]="isShutDown" (mousemove)="onMouseMove($event)">
+      <br>
+      <input [disabled]="isShutDown" (paste)="onPaste()">{{insertText}}
+      <br>
+      <button (click)="changeIt()">Zmiana</button>
+    </div>
+    <!-- "Zadanie" -->
+    <div>
+      <h5>Zadanie - Property binding</h5>
+      <p>Ten pracownik to {{job}}, a jego umiejętności to {{skill}}.</p>
+      Zawód: <input [value]="'programista'" (input)="inputJob($event)"> <br>
+      Umiejętności: <input [value]="'Angular'" (input)="inputSkill($event)">
+
+      <h6>lub użycie dyrektywy [(ngModel)]  #### NALEŻY ZAINPORTOWAĆ TĄ DYREKTYWE ####</h6>
+      <p>Nazywam się {{name}}, i moje hobby to {{hobby}}.</p>
+      Imię: <input [(ngModel)]="name"> <br>
+      Hobby: <input [(ngModel)]="hobby">
+    </div>
+  </div>
